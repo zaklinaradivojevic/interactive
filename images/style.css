@@ -19,7 +19,7 @@ body{
     display: block;
     margin: auto;
     border-radius: 8%;
-     width: 50%;
+     width: 30%;
     position: absolute;
   top: 50%;
   left: 50%;
@@ -34,19 +34,51 @@ body{
     width: 30px;
     height:30px;
     border-radius: 50%;
-    background-color: hsl(216, 12%, 54%) ;
+    background-color:  hsl(215, 7%, 34%);
 }
 .star{
  margin: auto;
- margin-top:15%;
+ margin-top:18%;
 
 }
-.tite{
+.title{
     font-size: 24px;
     font-weight: 700;
-    margin-top: 5%;
+    margin-top: 8%;
     text-align: left;
     margin-left:10%;
+}
+.plane-text{
+    color: hsl(216, 12%, 54%);
+    margin-top: 4%;
+    width:80%;
+    margin-left:10%;
+    text-align: left;
+    line-height: 25px;
+    font-size: 15px;
+}
+.raiting-btn{
+    width: 45px;
+    height:45px;
+    border-radius: 50%;
+    background-color:  hsl(215, 7%, 34%);
+    border:none;
+    color: hsl(216, 12%, 54%);
+    margin:6px;
+    margin-top: 8%;
+}
+.submit-btn{
+    width:80%;
+    height:40px;
+    border-radius: 20px;
+    border:none;
+    margin-top: 5%;
+    background-color: hsl(25, 97%, 53%);
+    color:hsl(0, 0%, 100%);
+    text-transform: uppercase;
+}
+.selected{
+    visibility: hidden;
 }
 .attribution { 
     font-size: 11px;
