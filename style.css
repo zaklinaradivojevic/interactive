@@ -1,0 +1,311 @@
+
+    /* 1. FRONT-END STYLE GUIDE CONSTANTS */
+    :root {
+      --orange: hsl(25, 97%, 53%);
+      --white: hsl(0, 0%, 100%);
+      --light-grey: hsl(217, 12%, 63%);
+      --medium-grey: hsl(216, 12%, 54%);
+      --dark-blue: hsl(213, 19%, 18%);
+      --very-dark-blue: hsl(216, 12%, 8%);
+      --font-body: 'Overpass', sans-serif;
+    }
+
+    /* 2. BASE RESET & LAYOUT SYSTEMS */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--very-dark-blue);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--light-grey);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    /* 3. CARD CONTAINER (Mobile default: 375px context) */
+    .rate-box {
+      background: linear-gradient(180deg, hsl(213, 19%, 22%) 0%, hsl(213, 19%, 14%) 100%);
+      max-width: 412px;
+      width: 100%;
+      border-radius: 30px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 4. RATING STATE STYLES */
+    .star-box {
+      background-color: var(--dark-blue);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .title {
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .plane-text {
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    .rating-num {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 12px;
+    }
+
+    /* 5. INTERACTIVE BUTTON STATES (Hover, Focus & Active) */
+    .raiting-btn {
+      background-color: var(--dark-blue);
+      color: var(--medium-grey);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Hover State */
+    .raiting-btn:hover {
+      background-color: var(--orange);
+      color: var(--white);
+    }
+
+    /* Keyboard Navigation Focus State */
+    .raiting-btn:focus-visible,
+    .submit-btn:focus-visible {
+      outline: 3px solid var(--white);
+      outline-offset: 3px;
+    }
+
+    /* Selected Rating State via JavaScript */
+    .raiting-btn.active {
+      background-color: var(--light-grey);
+      color: var(--white);
+    }
+
+    /* Submit Button Base Styling */
+    .submit-btn {
+      background-color: var(--orange);
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      width: 100%;
+      height: 45px;
+      border-radius: 22.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    /* Submit Hover State */
+    .submit-btn:hover {
+      background-color: var(--white);
+      color: var(--orange);
+    }
+
+    /* 6. THANK YOU STATE STYLES */
+    .selected {
+      display: none; /* Controlled via JS switching */
+      text-align: center;
+    }
+
+    .thank-you-img {
+      display: block;
+      margin: 12px auto 32px auto;
+    }
+
+    .score-badge {
+      background-color: var(--dark-blue);
+      color: var(--orange);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    .selected .title {
+      margin-bottom: 16px;
+    }
+
+    .selected .plane-text {
+      margin-bottom: 0;
+    }
+
+    /* Error Handling Alert */
+    .error-msg {
+      color: var(--orange);
+      font-size: 14px;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    /* 7. ATTRIBUTION FOOTER */
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      color: var(--medium-grey);
+      margin-top: 40px;
+    }
+    .attribution a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .attribution a:hover {
+      text-decoration: underline;
+    }
+/* --- 1. DEFAULT BUTTON STATE --- */
+.raiting-btn {
+  background-color: var(--dark-blue);
+  color: var(--medium-grey);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* --- 2. HOVER STATE (When cursor moves over a number) --- */
+.raiting-btn:hover {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* --- 3. ACTIVE/SELECTED STATE (Applied via JavaScript after click) --- */
+.raiting-btn.active {
+  background-color: var(--light-grey) !important;
+  color: var(--white) !important;
+}
+
+/* --- 4. SUBMIT BUTTON ACTIVE HOVER STATE --- */
+.submit-btn:hover {
+  background-color: var(--white);
+  color: var(--orange);
+}
+
+    /* Desktop View Adaptations (1440px target width environment) */
+    @media (min-width: 768px) {
+      .rate-box {
+        padding: 44px 38px;
+      }
+      .raiting-btn {
+        width: 52px;
+        height: 52px;
+      }
+    }
+    @media (max-width: 375px) {
+  body {
+    padding: 24px;
+  }
+
+  .rate-box {
+    max-width: 327px;
+    padding: 24px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, hsl(213, 19%, 18%) 0%, hsl(216, 12%, 12%) 100%);
+  }
+
+  .star-box {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .star {
+    transform: scale(0.85);
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .plane-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .rating-num {
+    gap: 0; /* Use space-between flex layout instead */
+    margin-bottom: 24px;
+  }
+
+  .raiting-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    height: 45px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+}
+@media (max-width: 375px) {
+  /* Thank You container adjustments */
+  .selected {
+    text-align: center;
+    padding: 10px 8px; /* Extra horizontal room for text */
+  }
+
+  .thank-you-img {
+    margin: 10px auto 24px auto;
+    width: 144px; /* Matches mobile illustration dimensions */
+    height: auto;
+  }
+
+  .score-badge {
+    font-size: 14px;
+    padding: 5px 12px;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+  }
+
+  .selected .title {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .selected .plane-text {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--medium-grey); /* Keeps body text subtle */
+  }
+}
+
+  
