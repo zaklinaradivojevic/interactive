@@ -2,61 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;700&family=Roboto:wght@100;300;500;900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="images\style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Interactive rating component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
- 
+<link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
 
-  <!-- Rating state start -->
-<div class="rate-box">
-  <div class="star-box">
-    <img class="star" src="https://raw.githubusercontent.com/zaklinaradivojevic/interactive/792542cf44400695d24611d8b6d388658242ef98/images/icon-star.svg">
-  </div>
-    <div class="title">
-  How did we do?
-</div>
-<div class="plane-text">
-  Please let us know how we did with your support request. All feedback is appreciated 
-  to help us improve our offering!
-</div>
-<div class="rating-num">
-  <button class="raiting-btn">1</button>
-  <button class="raiting-btn">2</button>
-  <button class="raiting-btn">3</button>
-  <button class="raiting-btn">4</button>
-  <button class="raiting-btn">5</button>
-</div>
-<button class="submit-btn">
-  Submit
-</button>
-  <!-- Rating state end -->
-
-  <!-- Thank you state start -->
-<div class="selected">
-  You selected <!-- Add rating here --> out of 5
-
-  Thank you!
-
-  We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!
-
-  <!-- Thank you state end -->
-</div>
-</div>
+<main class="rate-box" aria-live="polite">
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <!-- ====== RATING SELECTION STATE ====== -->
+  <div id="rating-container">
+    <div class="star-box">
+      <img class="star" src="https://raw.githubusercontent.com/zaklinaradivojevic/interactive/main/images/icon-star.svg" alt="" aria-hidden="true">
+    </div>
+    
+    <h1 class="title">How did we do?</h1>
+    
+    <p class="plane-text">
+      Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
+    </p>
+    
+    <div class="rating-num" role="group" aria-label="Select a rating from 1 to 5">
+      <button class="raiting-btn" type="button" aria-label="Rate 1 star">1</button>
+      <button class="raiting-btn" type="button" aria-label="Rate 2 stars">2</button>
+      <button class="raiting-btn" type="button" aria-label="Rate 3 stars">3</button>
+      <button class="raiting-btn" type="button" aria-label="Rate 4 stars">4</button>
+      <button class="raiting-btn" type="button" aria-label="Rate 5 stars">5</button>
+    </div>
+
+    <button class="submit-btn" id="submit-rating" type="button">Submit</button>
+    <div class="error-msg" id="validation-error">Please select a score before submitting.</div>
   </div>
+
+  <!-- ====== THANK YOU CONFIRMATION STATE ====== -->
+  <div class="selected" id="thank-you-container">
+    <!-- Inline production fallback for the custom illustration graphic -->
+    <img class="thank-you-img" src="https://raw.githubusercontent.com/zaklinaradivojevic/interactive/main/images/illustration-thank-you.svg" alt="Thank you graphic">
+    
+    <p class="score-badge" aria-atomic="true">
+      You selected <span id="rating-score">0</span> out of 5
+    </p>
+    
+    <h2 class="title">Thank you!</h2>
+    
+    <p class="plane-text">
+      We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!
+    </p>
+  </div>
+  
+</main>
+
+<footer class="attribution" role="contentinfo">
+  Challenge by <a href="https://frontendmentor.io" target="_blank" rel="noopener">Frontend Mentor</a>. 
+  Coded by <a href="#">Zaklina Radivojevic</a>.
+</footer>
+
+<script src="index.js"></script>
+
 </body>
 </html>
+
+
+ 
